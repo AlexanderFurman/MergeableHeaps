@@ -114,7 +114,7 @@ void CLI::load(const string& heapName, const string& filename) {
     int num;
     while (file >> num) {
         // Read each number from the file and add it to the heap
-        insert(heapName, num); 
+        insert(heapName, num);
     }
 
     // Close the file
@@ -129,6 +129,7 @@ void CLI::insert(const string& heapName, int value){
     // Insert the value into the heap
     heaps[heapName]->insert(value);
     cout << "Inserted " << value << " into heap " << heapName << " " << heapType(heapName) <<  "!" << endl;
+    display(heapName);
 }
 
 void CLI::minimum(const string& heapName) const{
@@ -138,6 +139,7 @@ void CLI::minimum(const string& heapName) const{
     }
     // Print the minimum value of the heap
     cout << "Minimum of heap " << heapName << " " << heapType(heapName) << " = " << heaps.at(heapName)->minimum() << endl;
+    display(heapName);
 }
 
 void CLI::extractMin(const string& heapName){
@@ -147,6 +149,7 @@ void CLI::extractMin(const string& heapName){
     }
     // Extract the minimum value from the heap and print it
     cout << "Extracted minimum from heap " << heapName << " " << heapType(heapName) << ": " << heaps[heapName]->extractMin() << endl;
+    display(heapName);
 }
 
 void CLI::unionHeap(const string& heapName1, const string& heapName2){
@@ -161,6 +164,8 @@ void CLI::unionHeap(const string& heapName1, const string& heapName2){
     // Merge the second heap into the first heap
     heaps[heapName1]->heapUnion(*heaps[heapName2]);
     cout << "Merged heap " << heapName2 << " " << heapType(heapName2) << " into heap " << heapName1 << " " << heapType(heapName1) <<  endl;
+    display(heapName1);
+    display(heapName2);
 }
 
 void CLI::display(const string& heapName) const{
