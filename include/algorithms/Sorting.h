@@ -8,6 +8,9 @@ namespace Sorting {
     // create a new SortedHeap based off of the current heap.
     void createSortedHeap(const UnsortedHeap& heap, SortedHeap& sortedHeap);
 
+    // Sort an Unsorted heap
+    void sortHeap(UnsortedHeap& heap);
+
     // performs Merge Sort algorithm on a list
     void mergeSort(DoublyLinkedList& inputList);
 

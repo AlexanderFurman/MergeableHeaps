@@ -18,6 +18,9 @@ void DoublyLinkedList::clear(){
         current = next;
         size--; // Decrease size
     }
+    // Ensure next and prev of dummy points to itself
+    dummy->next = dummy;
+    dummy->prev = dummy;
 }
 
 // Add a node at the end of the list

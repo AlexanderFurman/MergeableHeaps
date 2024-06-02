@@ -181,20 +181,15 @@ void CLI::sort(const string& heapName){
 
     //If heap type is UnsortedHeap, then sort the heap
     if (UnsortedHeap* unsortedPtr = dynamic_cast<UnsortedHeap*>(heapPtr)){
-        // Create a new sorted heap
-        unique_ptr<SortedHeap> sortedPtr(new SortedHeap());
 
         // Sort the unsorted heap and store the result in the sorted heap
-        Sorting::createSortedHeap(*unsortedPtr, *sortedPtr);
-
-        // Replace the original heap with the sorted heap
-        heaps[heapName] = move(sortedPtr);
-
-        cout << "Sorted heap " << heapName << "!" << endl;
+        Sorting::sortHeap(*unsortedPtr);
     }
     else {
         cout << "Heap " << heapName << " " << heapType(heapName) <<  " already sorted!" << endl;
     }
+    cout << "Here is the sorted contents of heap " << heapName << " " << heapType(heapName) <<  ": "; 
+    heapPtr->display();
 }
 
 const char* CLI::heapType(const string& heapName) const{
@@ -203,10 +198,10 @@ const char* CLI::heapType(const string& heapName) const{
 
     // Check the type of heap and return the corresponding string
     if (UnsortedHeap* unsortedPtr = dynamic_cast<UnsortedHeap*>(heapPtr)){
-        return "(unsorted)";
+        return "(unsorted input)";
     }
     else{
-        return "(sorted)";
+        return "(sorted input)";
     }
 }
 

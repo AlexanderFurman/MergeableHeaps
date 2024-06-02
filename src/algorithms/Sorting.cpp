@@ -65,3 +65,23 @@ void Sorting::createSortedHeap(const UnsortedHeap& heap, SortedHeap& sortedHeap)
         sortedHeap.insert(first);
     }
 }
+
+// Sort an unsorted heap
+void Sorting::sortHeap(UnsortedHeap& heap){
+    // get the list from the heap
+    DoublyLinkedList helperList = heap.getList();
+
+    // Sort the list using merge sort
+    mergeSort(helperList);
+    
+    // Empty current heap
+    heap.makeHeap();
+
+    // Insert elements from the newly sorted list into the heap
+    int first;
+    while (helperList.getSize() > 0)
+    {
+        first = helperList.extractAtIndex(0);
+        heap.insert(first);
+    }
+}

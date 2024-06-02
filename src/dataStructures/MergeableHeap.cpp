@@ -2,7 +2,7 @@
 
 // Empties current data from the heap
 void MergeableHeap::makeHeap(){
-    list = DoublyLinkedList();
+    list.clear();
 }
 
 // Returns the size of the heap.
