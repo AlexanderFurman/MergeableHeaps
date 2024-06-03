@@ -137,8 +137,14 @@ void CLI::minimum(const string& heapName) const{
         cout << "Heap " << heapName << " does not exist!" << endl;
         return;
     }
-    // Print the minimum value of the heap
-    cout << "Minimum of heap " << heapName << " " << heapType(heapName) << " = " << heaps.at(heapName)->minimum() << endl;
+    //Check if heap has any min element
+    if (heaps.at(heapName)->getSize() == 0){
+        cout << "Heap is empty!" << endl;
+    }
+    else{
+        // Print the minimum value of the heap
+        cout << "Minimum of heap " << heapName << " " << heapType(heapName) << " = " << heaps.at(heapName)->minimum() << endl;
+    }
     display(heapName);
 }
 
@@ -147,8 +153,14 @@ void CLI::extractMin(const string& heapName){
         cout << "Heap " << heapName << " does not exist!" << endl;
         return;
     }
+    //Check if heap has any min element
+    if (heaps[heapName]->getSize() == 0){
+        cout << "Heap is empty!" << endl;
+    }
+    else{
     // Extract the minimum value from the heap and print it
     cout << "Extracted minimum from heap " << heapName << " " << heapType(heapName) << ": " << heaps[heapName]->extractMin() << endl;
+    }
     display(heapName);
 }
 
