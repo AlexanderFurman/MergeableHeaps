@@ -155,11 +155,11 @@ void CLI::extractMin(const string& heapName){
     }
     //Check if heap has any min element
     if (heaps[heapName]->getSize() == 0){
-        cout << "Heap is empty!" << endl;
+        cout << "Heap is empty!";
     }
     else{
-    // Extract the minimum value from the heap and print it
-    cout << "Extracted minimum from heap " << heapName << " " << heapType(heapName) << ": " << heaps[heapName]->extractMin() << endl;
+        // Extract the minimum value from the heap and print it
+        cout << "Extracted minimum from heap " << heapName << " " << heapType(heapName) << ": " << heaps[heapName]->extractMin() << endl;
     }
     display(heapName);
 }
