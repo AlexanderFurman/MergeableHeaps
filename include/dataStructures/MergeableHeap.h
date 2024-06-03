@@ -5,11 +5,6 @@
 #include <memory>
 #include <stdexcept>
 
-enum InputType {
-    Sorted,
-    Unsorted
-};
-
 // Abstract class for Mergeable Heap
 class MergeableHeap {
     public:
