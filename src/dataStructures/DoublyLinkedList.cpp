@@ -167,7 +167,9 @@ DoublyLinkedList::DoublyLinkedList(const DoublyLinkedList& other): dummy(new Nod
         Node* newNode = new Node(current->data);
         prevNode->next = newNode;
         newNode->prev = prevNode;
+
         newNode->next = dummy;
+        dummy->prev = newNode;
 
         prevNode = newNode;
         current = current->next;
@@ -191,7 +193,9 @@ DoublyLinkedList& DoublyLinkedList::operator=(const DoublyLinkedList& other) {
         Node* newNode = new Node(current->data);
         prevNode->next = newNode;
         newNode->prev = prevNode;
+
         newNode->next = dummy;
+        dummy->prev = newNode;
         
         prevNode = newNode;
         current = current->next;
